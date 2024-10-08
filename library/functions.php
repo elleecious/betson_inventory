@@ -1,6 +1,6 @@
 <?php
     function getDevicesType(){
-        // Query to count the number of non-null values in each device column
+
         $type_sql = retrieve("
             SELECT 
                 COUNT(system_unit) AS system_unit_count, 
@@ -10,7 +10,6 @@
                 COUNT(headset) AS headset_count
             FROM devices", array());
     
-        // Defining colors for each device type
         $get_device_color = array(
             "System Unit" => "#2962FF",
             "Monitor" => "#6200EA",
@@ -19,7 +18,6 @@
             "Headset" => "#f1c40f"
         );
     
-        // Matching the counts from the query to the corresponding device types
         $device_counts = [
             "System Unit" => $type_sql[0]['system_unit_count'],
             "Monitor" => $type_sql[0]['monitor_count'],
@@ -28,7 +26,41 @@
             "Headset" => $type_sql[0]['headset_count'],
         ];
     
-        // Loop through each device type and display the count
+        foreach ($get_device_color as $stat_key => $stat_value) {
+            $count = isset($device_counts[$stat_key]) ? $device_counts[$stat_key] : 0;
+            echo "
+            <div class='col-5 col-sm-4 col-md-2 mb-4 mr-2' style='background-color:" . $stat_value . "'>
+                <div class='p-3 text-white text-center'>
+                    " . $stat_key . " <br><span>" . $count . "</span>
+                </div>
+            </div>";
+        }
+    }
+
+    function getOherDevicesType(){
+        $type_sql=retrieve("SELECT type,  COUNT(*) as count FROM other_devices GROUP BY type",array());
+       
+        $get_device_color = array(
+            "System Unit" => "#2962FF",
+            "Monitor" => "#6200EA",
+            "Keyboard" => "#01392f",
+            "Mouse" => "#c0392b",
+            "Headset" => "#f1c40f",
+            "Laptop" => "#eb9c4d",
+            "Printer" => "#001848",
+            "Modem" => "#17f9ff",
+            "Router" => "#340a0b",
+            "Switches" => "#615145",
+            "UPS" => "#2ecc71",
+            "AVR" => "#d6a692",
+        );
+
+        $device_counts = [];
+
+        foreach ($type_sql as $row) {
+            $device_counts[$row['type']] = $row['count'];
+        }
+
         foreach ($get_device_color as $stat_key => $stat_value) {
             $count = isset($device_counts[$stat_key]) ? $device_counts[$stat_key] : 0;
             echo "

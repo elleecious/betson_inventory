@@ -1,6 +1,6 @@
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark" style="background-color: #002E5D;">
     <a class="navbar-brand" href="#">
-        Betson Assets
+        Betson Inventory
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
     aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">

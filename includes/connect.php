@@ -9,7 +9,7 @@ date_default_timezone_set("Asia/Manila");
 
 // Define database connection variables
 $dbhost = "localhost";
-$dbname = "betson_assets";
+$dbname = "betson_inventory";
 $dbusername = "root";
 $dbpassword = "";
 

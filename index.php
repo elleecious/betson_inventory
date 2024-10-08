@@ -19,8 +19,8 @@
                     <div class="card-body mt-3">
                         <div class="row">
                             <div class="col-md-12">
-                                <table class="table table-striped table-bordered table-sm text-center" width="100%" cellspacing="0" cellpadding="0" id="tblDevices">
-                                    <thead>
+                                <table class="table table-bordered table-sm text-center" width="100%" cellspacing="0" cellpadding="0" id="tblDevices">
+                                    <thead class="thead">
                                         <tr>
                                             <?php
                                                 $stud_head=explode(",","Cubicle Number,Assigned Agent,System Unit,Monitor,Keyboard,Mouse,Headset,Actions");
@@ -72,6 +72,70 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12 mb-2">
+                <div class="card">
+                    <div class="card-header p-3 blue darken-1 text-white">
+                        Manage Other Devices
+                    </div>
+                    <a class="btn col-12 col-sm-12 col-md-3 col-lg-2 mr-auto ml-auto" style="background-color: #2d3436;" data-toggle="modal" data-target="#add_other_devices_modal">Add Other Devices</a>
+                    <div class="container mt-1">
+                        <div class="row justify-content-center">
+                            <?php getOherDevicesType(); ?>
+                        </div>
+                    </div>
+                    <div class="card-body mt-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-sm text-center" width="100%" cellspacing="0" cellpadding="0" id="tblOtherDevices">
+                                    <thead class="thead">
+                                        <tr>
+                                            <?php
+                                                $stud_head=explode(",","Brand,Model,Serial Number,Type,Inventory Number,Actions");
+                                                foreach($stud_head as $stud_val)
+                                                {
+                                                    echo "<th>".$stud_val."</th>";
+                                                }
+                                            ?>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        $getOtherDevices=retrieve("SELECT * FROM other_devices",array());
+                                        for ($i=0; $i < COUNT($getOtherDevices); $i++) { 
+                                            echo "<tr>
+                                                    <td>".$getOtherDevices[$i]['brand']."</td>
+                                                    <td>".$getOtherDevices[$i]['model']."</td>
+                                                    <td>".$getOtherDevices[$i]['serial_number']."</td>
+                                                    <td>".$getOtherDevices[$i]['type']."</td>
+                                                    <td>".strtoupper($getOtherDevices[$i]['type'])."-".$getOtherDevices[$i]['inventory_number']."</td>
+                                                    <td>
+                                                            <span class='mr-1 edit_other_device'
+                                                            edit_other_device_id='".$getOtherDevices[$i]['id']."'
+                                                            edit_brand='".$getOtherDevices[$i]['brand']."'
+                                                            edit_model='".$getOtherDevices[$i]['model']."'
+                                                            edit_serial_number='".$getOtherDevices[$i]['serial_number']."'
+                                                            edit_type='".$getOtherDevices[$i]['type']."'
+                                                            edit_inventory_number='".$getOtherDevices[$i]['inventory_number']."'
+                                                            data-toggle='modal' data-target='#edit_other_devices_modal'>
+                                                            <i class='fas fa-edit'></i>
+                                                        </span>
+                                                        <span class='mr-1 delete_other_device'
+                                                            delete_other_device_id='".$getOtherDevices[$i]['id']."'
+                                                            device_type='".$getOtherDevices[$i]['type']."'>
+                                                            <i class='fa fa-trash'></i>
+                                                        </span>
+                                                    </td>
+                                                </tr>";
+                                            }
+                                        ?>
+                                    </tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -92,7 +156,29 @@ $(document).ready(function () {
         $("#edit_devices_modal").modal("show");
     });
 
+    
+
+    $(".edit_other_device").click(function(){
+        $("#edit_other_device_id").val($(this).attr("edit_other_device_id"));
+        $("#edit_brand").val($(this).attr("edit_brand"));
+        $("#edit_model").val($(this).attr("edit_model"));
+        $("#edit_serial_number").val($(this).attr("edit_serial_number"));
+        $("#edit_type").val($(this).attr("edit_type"));
+        $("#edit_inventory_number").val($(this).attr("edit_inventory_number"));
+        $("#edit_other_devices_modal").modal("show");
+    });
+
     $("#tblDevices").DataTable({
+		"scrollX": true,
+		"info": true,
+		"lengthChange": true,
+		"paging": true,
+		"searching": true,
+        "pageLength":20,
+		"order": [],
+	});
+
+    $("#tblOtherDevices").DataTable({
 		"scrollX": true,
 		"info": true,
 		"lengthChange": true,
