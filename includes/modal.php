@@ -77,7 +77,7 @@
                     <select class="mdb-select md-form" name="type" id="type">
                         <option value="" disabled selected>Type</option>
                         <?php
-                          $device_type=array("System Unit","Monitor","Keyboard","Mouse","Headset","Laptop","Printer","Modem","Router","Switch","UPS","AVR");
+                          $device_type=array("Laptop","Printer","Modem","Router","Switch","UPS","AVR","Aircon");
                           sort($device_type);
                           foreach ($device_type as $type) {
                             echo "<option value='".$type."'>".$type."</option>";
@@ -175,7 +175,7 @@
                       <select class="form-control form-control-sm" name="edit_type" id="edit_type">
                         <option value="">Select Device Type</option>
                         <?php
-                          $device_type=array("System Unit","Monitor","Keyboard","Mouse","Headset","Laptop","Printer","Modem","Router","Switch","UPS","AVR");
+                          $device_type=array("Laptop","Printer","Modem","Router","Switch","UPS","AVR","Aircon");
                           sort($device_type);
                           foreach ($device_type as $type) {
                             echo "<option value='".$type."'>".$type."</option>";

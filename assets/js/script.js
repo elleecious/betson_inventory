@@ -2,6 +2,8 @@ $(document).ready(function() {
     
     $('.mdb-select').materialSelect();
 
+    // tooltip initialization
+    $('[data-toggle="tooltip"]').tooltip();
     
     $("#add_devices").click(function(e){
         e.preventDefault();

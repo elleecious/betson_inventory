@@ -10,6 +10,11 @@
     <div class="collapse navbar-collapse" id="basicExampleNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a href="production_map.php" target="_blank" class="nav-link">
+                    <span class="fa fa-map"></span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" id="nightMode">
                     <span class="fa fa-moon text-white"></span>
                 </a>

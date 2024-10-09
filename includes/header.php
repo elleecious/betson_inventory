@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo $short_url ?>assets/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $short_url;?>assets/css/addons/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $short_url;?>assets/css/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $short_url;?>assets/css/style_v2.css">
     <link rel="shortcut icon" href="<?php echo $short_url;?>assets/img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

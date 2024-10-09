@@ -1,9 +1,5 @@
 <?php
 
-ini_set('log_errors', 1);
-ini_set('error_log', 'C:/xampp/php/logs/php_error_log.txt');
-error_reporting(E_ALL);
-
 // Set timezone
 date_default_timezone_set("Asia/Manila");
 
