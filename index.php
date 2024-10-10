@@ -5,13 +5,51 @@
 <div class="row mx-auto">
     <div class="col-md-12 mb-2">
         <div class="row mt-5">
-            <div class="col-md-12 mb-2">
+            <div class="col-md-3 mb-2">
+                <div class="card">
+                    <div class="card-header p-3 blue darken-1 text-white">
+                        Add Devices
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form method="POST" id="frmAddDevices">
+                                    <div class="row">
+                                        <?php
+                                            $device_form = array(
+                                                "cubicle_number" => "Cubicle Number",
+                                                "assigned_agent" => "Assigned Agent",
+                                                "system_unit" => "System Unit",
+                                                "monitor" => "Monitor",
+                                                "keyboard" => "Keyboard",
+                                                "mouse" => "Mouse",
+                                                "headset" => "Headset"
+                                            );
+
+                                            foreach ($device_form as $dfkey => $dfvalue) {
+                                                echo "
+                                                <div class='col-md-12'>
+                                                    <div class='md-form'>
+                                                        <input class='form-control' type='text' name='".$dfkey."' id='".$dfkey."'>
+                                                        <label for='".$dfkey."'>".$dfvalue."</label>
+                                                    </div>
+                                                </div>";
+                                            }
+                                        ?>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-md" name="add_devices" id="add_devices">Add</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 mb-2">
                 <div class="card">
                     <div class="card-header p-3 blue darken-1 text-white">
                         Manage Devices
                     </div>
-                    <a class="btn col-12 col-sm-12 col-md-3 col-lg-2 mr-auto ml-auto" style="background-color: #2d3436;" data-toggle="modal" data-target="#add_devices_modal">Add Devices</a>
-                    <div class="container mt-1">
+                    <div class="container mt-2">
                         <div class="row justify-content-center">
                             <?php getDevicesType(); ?>
                         </div>
@@ -72,12 +110,66 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 mb-2">
+            
+            <div class="col-md-3 mb-2">
+                <div class="card">
+                    <div class="card-header p-3 blue darken-1 text-white">
+                       Add Other Devices 
+                    </div>
+                    <div class="card-body mt-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form method="POST" id="frmAddDevices">
+                                    <div class="row">
+                                        <?php
+                                            $device_form = array(
+                                                "brand" => "Brand",
+                                                "model" => "Model",
+                                                "serial_number" => "Serial Number",
+                                            );
+
+                                            foreach ($device_form as $dfkey => $dfvalue) {
+                                                echo "
+                                                <div class='col-md-12'>
+                                                    <div class='md-form'>
+                                                        <input class='form-control' type='text' name='".$dfkey."' id='".$dfkey."'>
+                                                        <label for='".$dfkey."'>".$dfvalue."</label>
+                                                    </div>
+                                                </div>";
+                                            }
+                                        ?>
+                                        <div class="col-md-12">
+                                            <select class="mdb-select md-form" name="type" id="type">
+                                                <option value="" disabled selected>Type</option>
+                                                <?php
+                                                $device_type=array("Laptop","Printer","Modem","Router","Switch","UPS","AVR","Aircon");
+                                                sort($device_type);
+                                                foreach ($device_type as $type) {
+                                                    echo "<option value='".$type."'>".$type."</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="md-form">
+                                            <input class="form-control" type="text" name="inventory_number" id="inventory_number">
+                                            <label for="inventory_number">Inventory Number</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-md" name="add_other_devices" id="add_other_devices">Add</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 mb-2">
                 <div class="card">
                     <div class="card-header p-3 blue darken-1 text-white">
                         Manage Other Devices
                     </div>
-                    <a class="btn col-12 col-sm-12 col-md-3 col-lg-2 mr-auto ml-auto" style="background-color: #2d3436;" data-toggle="modal" data-target="#add_other_devices_modal">Add Other Devices</a>
                     <div class="container mt-1">
                         <div class="row justify-content-center">
                             <?php getOherDevicesType(); ?>

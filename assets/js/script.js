@@ -30,7 +30,6 @@ $(document).ready(function() {
                     icon: response.status,
                 });
                 $("#frmAddDevices")[0].reset();
-                $("#add_devices_modal").modal('hide');
                 setTimeout(function(){
                     location.reload();
                 }, 1000);
@@ -68,7 +67,6 @@ $(document).ready(function() {
                     icon: response.status,
                 });
                 $("#frmAddDevices")[0].reset();
-                $("#add_other_devices_modal").modal('hide');
                 setTimeout(function(){
                     location.reload();
                 }, 1000);
