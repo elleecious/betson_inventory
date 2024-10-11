@@ -1,10 +1,31 @@
 $(document).ready(function() {
     
     $('.mdb-select').materialSelect();
-
-    // tooltip initialization
+    $('[data-toggle="popover"]').popover();
     $('[data-toggle="tooltip"]').tooltip();
-    
+
+    $("#type").change(function() { 
+        
+        var selectedType = $(this).val();
+
+        $.ajax({
+            url: "./actions/get_inventory_number.php",
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                type: selectedType
+            },
+            success: function(response) { 
+                if (response.inventory_number) {
+                    $("#inventory_number").val(response.inventory_number);
+                }
+            },
+            error: function(xhr, status, error) { 
+                console.log('Error fetching inventory number: ', error);
+            }
+        })
+    });
+
     $("#add_devices").click(function(e){
         e.preventDefault();
 
@@ -66,7 +87,7 @@ $(document).ready(function() {
                     text: response.message,
                     icon: response.status,
                 });
-                $("#frmAddDevices")[0].reset();
+                $("#frmAddOtherDevice")[0].reset();
                 setTimeout(function(){
                     location.reload();
                 }, 1000);

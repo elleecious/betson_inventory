@@ -31,7 +31,7 @@
         foreach ($get_device_color as $stat_key => $stat_value) {
             $count = isset($device_counts[$stat_key]) ? $device_counts[$stat_key] : 0;
             echo "
-            <div class='col-5 col-sm-4 col-md-2 mb-4 mr-2' style='background-color:" . $stat_value . "'>
+            <div class='col-5 col-sm-4 col-md-2 mb-4 mr-2 hvr-pop' style='background-color:" . $stat_value . "'>
                 <div class='p-3 text-white text-center'>
                     " . $stat_key . " <br><span>" . $count . "</span>
                 </div>
@@ -61,8 +61,7 @@
         foreach ($get_device_color as $stat_key => $stat_value) {
             $count = isset($device_counts[$stat_key]) ? $device_counts[$stat_key] : 0;
             echo "
-            <div class='col-5 col-sm-4 col-md-2 mb-4 mr-2' style='background-color:" . $stat_value . "'>
-                
+            <div class='col-5 col-sm-4 col-md-2 mb-4 mr-2 hvr-pop' style='background-color:" . $stat_value . "'>
                 <div class='p-3 text-white text-center'>
                     " . $stat_key . " <br><span>" . $count . "</span>
                 </div>
@@ -74,7 +73,7 @@
         $device_sql = retrieve("SELECT * FROM devices ORDER BY cubicle_number ASC",array());
         foreach ($device_sql as $device_row) {
             echo "
-            <div class='col-12 col-xl-2 col-lg-2 col-sm-3 col-md-2 mb-4 mr-2 ml-2 betson-color'>
+            <div class='col-12 col-xl-2 col-lg-2 col-sm-3 col-md-2 mb-4 mr-2 ml-2 betson-color hvr-pop'>
                 <div class='p-3 text-white text-center'>
                     <span class='fa fa-desktop fa-2x'></span><br>
                     ".($device_row['assigned_agent'] ? "<h6 class='mt-1'> ".$device_row['assigned_agent']."</h6>" : "Vacancy" )."

@@ -9,6 +9,8 @@
 <script type="text/javascript" src="<?php echo $short_url;?>assets/js/addons/datatables.min.js"></script>
 <script type="text/javascript" src="<?php echo $short_url;?>assets/js/script.js"></script>
 <script type="text/javascript" src="<?php echo $short_url;?>assets/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="<?php echo $short_url;?>assets/js/popper.min.js"></script>
+<script type="text/javascript" src="<?php echo $short_url;?>assets/js/popper.js"></script>
 </body>
 </html>
 <script type="text/javascript">

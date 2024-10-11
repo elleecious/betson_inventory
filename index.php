@@ -29,15 +29,13 @@
                                             foreach ($device_form as $dfkey => $dfvalue) {
                                                 echo "
                                                 <div class='col-md-12'>
-                                                    <div class='md-form'>
-                                                        <input class='form-control' type='text' name='".$dfkey."' id='".$dfkey."'>
-                                                        <label for='".$dfkey."'>".$dfvalue."</label>
-                                                    </div>
+                                                    <small>".$dfvalue."</small>
+                                                    <input class='form-control form-control-sm' type='text' name='".$dfkey."' id='".$dfkey."'>
                                                 </div>";
                                             }
                                         ?>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-md" name="add_devices" id="add_devices">Add</button>
+                                    <button type="submit" class="btn blue accent-4 white-text hvr-sweep-to-right" name="add_devices" id="add_devices">Add</button>
                                 </form>
                             </div>
                         </div>
@@ -92,11 +90,11 @@
                                                             edit_mouse='".$getDevices[$i]['mouse']."'
                                                             edit_headset='".$getDevices[$i]['headset']."'
                                                             data-toggle='modal' data-target='#edit_devices_modal'>
-                                                            <i class='fas fa-edit'></i>
+                                                            <i class='fas fa-edit hvr-pop'></i>
                                                         </span>
                                                         <span class='mr-1 delete_device'
                                                             delete_device_id='".$getDevices[$i]['id']."'>
-                                                            <i class='fa fa-trash'></i>
+                                                            <i class='fa fa-trash hvr-pop'></i>
                                                         </span>
                                                     </td>
                                                 </tr>";
@@ -119,7 +117,7 @@
                     <div class="card-body mt-3">
                         <div class="row">
                             <div class="col-md-12">
-                                <form method="POST" id="frmAddDevices">
+                                <form method="POST" id="frmAddOtherDevice">
                                     <div class="row">
                                         <?php
                                             $device_form = array(
@@ -131,10 +129,8 @@
                                             foreach ($device_form as $dfkey => $dfvalue) {
                                                 echo "
                                                 <div class='col-md-12'>
-                                                    <div class='md-form'>
-                                                        <input class='form-control' type='text' name='".$dfkey."' id='".$dfkey."'>
-                                                        <label for='".$dfkey."'>".$dfvalue."</label>
-                                                    </div>
+                                                    <small>".$dfvalue."</small>
+                                                    <input class='form-control form-control-sm' type='text' name='".$dfkey."' id='".$dfkey."'>
                                                 </div>";
                                             }
                                         ?>
@@ -151,13 +147,11 @@
                                             </select>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="md-form">
-                                            <input class="form-control" type="text" name="inventory_number" id="inventory_number">
-                                            <label for="inventory_number">Inventory Number</label>
-                                            </div>
+                                            <small>Inventory Number</small>
+                                            <input class="form-control form-control-sm" type="text" name="inventory_number" id="inventory_number">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-md" name="add_other_devices" id="add_other_devices">Add</button>
+                                    <button type="submit" class="btn blue accent-4 white-text hvr-sweep-to-right" name="add_other_devices" id="add_other_devices">Add</button>
                                 </form>
                             </div>
                         </div>
@@ -170,7 +164,7 @@
                     <div class="card-header p-3 blue darken-1 text-white">
                         Manage Other Devices
                     </div>
-                    <div class="container mt-1">
+                    <div class="container mt-2">
                         <div class="row justify-content-center">
                             <?php getOherDevicesType(); ?>
                         </div>
@@ -209,12 +203,12 @@
                                                             edit_type='".$getOtherDevices[$i]['type']."'
                                                             edit_inventory_number='".$getOtherDevices[$i]['inventory_number']."'
                                                             data-toggle='modal' data-target='#edit_other_devices_modal'>
-                                                            <i class='fas fa-edit'></i>
+                                                            <i class='fas fa-edit hvr-pop'></i>
                                                         </span>
                                                         <span class='mr-1 delete_other_device'
                                                             delete_other_device_id='".$getOtherDevices[$i]['id']."'
                                                             device_type='".$getOtherDevices[$i]['type']."'>
-                                                            <i class='fa fa-trash'></i>
+                                                            <i class='fa fa-trash hvr-pop'></i>
                                                         </span>
                                                     </td>
                                                 </tr>";
