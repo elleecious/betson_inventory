@@ -73,7 +73,13 @@
         $device_sql = retrieve("SELECT * FROM devices ORDER BY cubicle_number ASC",array());
         foreach ($device_sql as $device_row) {
             echo "
-            <div class='col-12 col-xl-2 col-lg-2 col-sm-3 col-md-2 mb-4 mr-2 ml-2 betson-color hvr-pop'>
+            <div class='col-12 col-xl-2 col-lg-2 col-sm-3 col-md-2 mb-4 mr-2 ml-2 betson-color hvr-pop get_device_info' data-toggle='modal' data-target='#deviceInfoModal'
+                data-system-unit='".$device_row['system_unit']."'
+                data-monitor='".$device_row['monitor']."'
+                data-keyboard='".$device_row['keyboard']."'
+                data-mouse='".$device_row['mouse']."'
+                data-headset='".$device_row['headset']."'
+            >
                 <div class='p-3 text-white text-center'>
                     <span class='fa fa-desktop fa-2x'></span><br>
                     ".($device_row['assigned_agent'] ? "<h6 class='mt-1'> ".$device_row['assigned_agent']."</h6>" : "Vacancy" )."

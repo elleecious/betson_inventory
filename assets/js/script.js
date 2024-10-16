@@ -4,6 +4,61 @@ $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
     $('[data-toggle="tooltip"]').tooltip();
 
+    $(".get_device_info").click(function() { 
+        
+        $("#system_unit").text($(this).data("system-unit"));
+        $("#monitor").text($(this).data("monitor"));
+        $("#keyboard").text($(this).data("keyboard"));
+        $("#mouse").text($(this).data("mouse"));
+        $("#headset").text($(this).data("headset"));
+        $("#deviceInfoModal").modal("show");
+        
+    });
+
+    $.ajax({
+        url: "./actions/get_type_devices.php",
+        type: "GET",
+        dataType: "JSON",
+        success: function (response) {
+            const labels = [];
+            const data = [];
+
+            response.forEach(item => {
+                labels.push(item.type);
+                data.push(item.count);
+            });
+
+            const ctx = document.getElementById("deviceTypeChart").getContext('2d');
+            new Chart(ctx, {
+                type:'doughnut',
+                data: { 
+                    labels: labels,
+                    datasets: [{
+                        label: 'Device Count',
+                        data: data,
+                        backgroundColor: [
+                            "#2962FF",
+                            "#001848",
+                            "#d31900",
+                            "#340a0b",
+                        ],
+                        borderColor: 'rgba(75,192,192,1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: { 
+                    mainAspectRation: false,
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                        }
+                    }
+                }
+            })
+        }
+    });
+
     $("#type").change(function() { 
         
         var selectedType = $(this).val();

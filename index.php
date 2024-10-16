@@ -167,6 +167,7 @@
                     <div class="container mt-2">
                         <div class="row justify-content-center">
                             <?php getOherDevicesType(); ?>
+                             <canvas class="d-none" id="deviceTypeChart"></canvas>
                         </div>
                     </div>
                     <div class="card-body mt-3">

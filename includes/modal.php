@@ -90,3 +90,23 @@
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="deviceInfoModal" tabindex="-1" role="dialog" aria-labelledby="deviceInfoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header betson-color white-text">
+          <h5 class="modal-title" id="editDevicesLabel">Device Information</h5>
+          <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><strong>System Unit:</strong> <span id="system_unit"></span></p>
+          <p><strong>Monitor:</strong> <span id="monitor"></span></p>
+          <p><strong>Keyboard:</strong> <span id="keyboard"></span></p>
+          <p><strong>Mouse:</strong> <span id="mouse"></span></p>
+          <p><strong>Headset:</strong> <span id="headset"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>

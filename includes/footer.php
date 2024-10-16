@@ -11,6 +11,7 @@
 <script type="text/javascript" src="<?php echo $short_url;?>assets/js/bootstrap-select.min.js"></script>
 <script type="text/javascript" src="<?php echo $short_url;?>assets/js/popper.min.js"></script>
 <script type="text/javascript" src="<?php echo $short_url;?>assets/js/popper.js"></script>
+<script type="text/javascript" src="<?php echo $short_url;?>assets/js/chart.js"></script>
 </body>
 </html>
 <script type="text/javascript">
