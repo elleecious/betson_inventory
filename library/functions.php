@@ -3,13 +3,12 @@
     function getDevicesType(){
 
         $type_sql = retrieve("SELECT 
-                COUNT(system_unit) AS system_unit_count, 
-                COUNT(keyboard) AS keyboard_count, 
-                COUNT(monitor) AS monitor_count, 
-                COUNT(mouse) AS mouse_count, 
-                COUNT(headset) AS headset_count
-            FROM devices;
-
+                                COUNT(CASE WHEN TRIM(system_unit) <> '' THEN 1 END) AS system_unit_count,
+                                COUNT(CASE WHEN TRIM(keyboard) <> '' THEN 1 END) AS keyboard_count,
+                                COUNT(CASE WHEN TRIM(monitor) <> '' THEN 1 END) AS monitor_count,
+                                COUNT(CASE WHEN TRIM(mouse) <> '' THEN 1 END) AS mouse_count,
+                                COUNT(CASE WHEN TRIM(headset) <> '' THEN 1 END) AS headset_count
+                            FROM devices
             ", array());
     
         $get_device_color = array(
